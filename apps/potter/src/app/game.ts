@@ -1,14 +1,16 @@
 export class Game {
-    private books: number[] = [0,0,0,0,0]; 
+    private basket: number[] = []; 
 
-    buy(episode: number, num: number){
-        this.books[episode] = num;
+    buy(episode: number[]){
+        for(let i = 0; i < 5; i++){
+            this.basket[i] = episode[i];
+        }
     }
 
     get price(){
         let score = 0;
         for(let epi = 0; epi < 5; epi++){
-            score += this.books[epi] * 8
+            score += this.basket[epi] * 8
         }
         return score;
     }

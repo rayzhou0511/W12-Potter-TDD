@@ -1,3 +1,4 @@
+import { TestBed } from '@angular/core/testing';
 import { Game } from './game';
 
 describe('Game', () => {
@@ -7,10 +8,14 @@ describe('Game', () => {
     game = new Game();
   });
 
-  test('testbasic', () => {
-    game.buy(0,2);
-    game.buy(1,4);
-    game.buy(4,1)
+  test('testbasics', () => {
+    game.buy([2,0,4,1,0]);
     expect(game.price).toBe(56);
   });
+  /*
+  test('testSimpleDiscounts', () => {
+    game.buy([1,0,1,1,0]);
+    expect(game.price).toBe(8*3*0.9);
+  }); 
+  */
 });
