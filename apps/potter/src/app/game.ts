@@ -9,13 +9,12 @@ export class Game {
 
     get price(){
         let score = 0;
-        let bookcount = 0;
         let split_basket = [];
-        let count = 0;
+        let sub_basket_count = 0;
         split_basket = this.SplitBasket(this.basket);
         for(let which_basket = 0; which_basket < split_basket.length; which_basket++){
-            count = this.SumBasket(split_basket[which_basket])
-            score += count * this.WhichDiscount(count) * this.per_book_price;
+            sub_basket_count = this.SumBasket(split_basket[which_basket])
+            score += sub_basket_count * this.WhichDiscount(sub_basket_count) * this.per_book_price;
         }
         
         return score;
