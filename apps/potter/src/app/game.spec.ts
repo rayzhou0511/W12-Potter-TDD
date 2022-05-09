@@ -25,9 +25,15 @@ describe('Game', () => {
     expect(game.price).toBe(8*5*0.75 + 8*1*1);
   });
 
-  test('testEdgeCases', () => {
+  test('testEdgeCases1', () => {
     game.buy([2,2,2,1,1]);
     expect(game.price).toBe(8*4*0.8 + 8*4*0.8);
   });
 
+  /*
+  test('testEdgeCases2', () => {
+    game.buy([5,5,4,5,4]);
+    expect(game.price).toBe((8*5*0.75)*3 + (8*4*0.8)*2);
+  });
+  */
 });

@@ -13,7 +13,7 @@ export class Game {
         let sub_basket_count = 0;
         split_basket = this.SplitBasket(this.basket);
         for(let which_basket = 0; which_basket < split_basket.length; which_basket++){
-            sub_basket_count = this.SumBasket(split_basket[which_basket])
+            sub_basket_count = this.SumBasket(split_basket[which_basket]);
             score += sub_basket_count * this.WhichDiscount(sub_basket_count) * this.per_book_price;
         }
         
@@ -32,11 +32,20 @@ export class Game {
 
     private SplitBasket(basket : number[]){
         let total_sub_basket = [];
-        let sub_basket = [];
+        let sub_basket = [0,0,0,0,0];
         for(let i = 0; i < 5; i++){
             if(basket[i] > 1){
-                sub_basket.push(1);
+                sub_basket[i] = 1;
                 basket[i]-=1;
+            }
+        }
+        if (this.SumBasket(sub_basket) === 3 && this.SumBasket(basket) === 5){
+            for(let i = 0; i < 5; i++){
+                if(basket[i] != 0 && sub_basket[i] === 0){
+                    sub_basket[i] = 1;
+                    basket[i] = 0;
+                    break;
+                }
             }
         }
         total_sub_basket.push(sub_basket);
