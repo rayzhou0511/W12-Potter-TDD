@@ -20,4 +20,9 @@ describe('Game', () => {
     expect(game.price).toBe(8*5*0.75);
   });
 
+  test('testSeveralDiscounts', () => {
+    game.buy([2,1,2,1,0]);
+    expect(game.price).toBe(8*4*0.8 + 8*2*0.95);
+  });
+
 });
