@@ -8,12 +8,12 @@ describe('Game', () => {
     game = new Game();
   });
 
-  /*
+  
   test('testbasics', () => {
     game.buy([2,0,4,1,0]);
-    expect(game.price).toBe(56);
+    expect(game.price).toBe(8*3*0.9 + 8*2*0.95 + 8*2);
   });
-  */
+  
 
   
   test('testSimpleDiscounts', () => {
